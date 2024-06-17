@@ -1,30 +1,3 @@
-# tinfl_stream_embed (and rtgz)
-
-tinfl (deflate decompressor) geared for very embedded environments.
-
-Comes with rtgz, a raw deflate/inflate tool for reading/writing.
-
-Usage:
-
-```sh
-echo "woot woot mc doot" | ./rtgz -c -w 9 -l 9 -v | ./rtgz -d
-Compression: 18 / 16 (88.89%) (w_bits = 9)
-woot woot mc doot
-```
-
-And for `tinf_sf.h`, there is `demo.c` that demonstrates the streaming API.
-
-This also targets a reasonably small target, and it is setup to allow streaming without a large buffer.
-
-```sh
-$ make && ./demo
-gcc -o demo demo.c -lz -g -O2
-hello world
-R: 0
-Context size: 1784
-```
-
-```c
 #include <stdio.h>
 #include <assert.h>
 
@@ -77,4 +50,4 @@ int main()
 	printf( "Context size: %ld\n", sizeof( struct tinf_data ) );
 	return r;
 }
-```
+
