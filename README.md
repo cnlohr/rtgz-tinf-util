@@ -1,6 +1,16 @@
 # rtgz and tinf_sf.h
 
-tinfl (deflate decompressor) geared for very embedded environments, with single-file-header with streamable data support + tool (`rtgz`) for working with raw deflate/inflate blobs, like gzip/zlib, but without a file header.  Useful for working with compressed inflate/deflate blobs.
+tinf (deflate decompressor) geared for very embedded environments, with single-file-header with streamable data support + tool (`rtgz`) for working with raw deflate/inflate blobs, like gzip/zlib, but without a file header.  Useful for working with compressed inflate/deflate blobs.
+
+Basically, it contains:
+ * `rtgz`
+   * Compress and decompress raw `deflate` compression blobs
+   * Tunable window size (for targeting embedded systems)
+ * `tinf_sf.h`
+   * Single-file header version of https://github.com/jibsen/tinf/
+   * Tunable window size at compile time.
+   * Tunable features
+   * Able to be normal memory mode, or stream mode (where it consumes and emits individual bytes).
 
 Usage:
 
