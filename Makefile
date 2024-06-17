@@ -12,7 +12,7 @@ rtgz : rtgz.c
 tinftest : tinftest.c
 	gcc -o $@ $^ $(CFLAGS)
 
-test : tinftest rtgz
+test : tinftest rtgz demo
 	./demo
 	./rtgz -c -i /usr/bin/gcc -o gcc_15.gz -w 15 -l 9 -v
 	./rtgz -c -i /usr/bin/gcc -o gcc.gz -w 9 -l 9 -v
