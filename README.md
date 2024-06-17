@@ -12,7 +12,11 @@ Basically, it contains:
    * Tunable features
    * Able to be normal memory mode, or stream mode (where it consumes and emits individual bytes).
 
-Usage:
+## Note about window size
+
+Deflate uses "window size bits" to determine how big of a history is needed.  When using streaming mode, a separate buffer needs to be maintained that can store the history.  Files that are larger than the window size of the receiver, and, compressed with a window sized larger than the receiver cannot be decompressed.  So, if you want to use a small decode window, you musst use `rtgz` to compress with a smaller decode window.  I.e. `STREAM_BUFFER_BITS` must match the `-w` parameter to `rtgz`.
+
+## Usage
 
 ```sh
 echo "woot woot mc doot" | ./rtgz -c -w 9 -l 9 -v | ./rtgz -d
