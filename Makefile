@@ -3,7 +3,8 @@ all : tinftest rtgz demo
 CFLAGS:=-lz -g -O2
 
 demo : demo.c
-	gcc -o $@ $^ $(CFLAGS)
+	gcc -o $@ $^ $(CFLAGS) -s
+	size $@
 
 rtgz : rtgz.c
 	gcc -o $@ $^ $(CFLAGS)
